@@ -4,10 +4,10 @@
 
 There are several methods to set up and consume data sharing using:
 
-* PL/SQL scripts in Autonomous Database (ADB) using delta sharing protocol
-* PL/SQL scripts in Autonomous Database (ADB) using Cloud links
-* Data Studio in Autonomous Database (ADB) using delta sharing protocol
-* _Data Studio in Autonomous Database (ADB) using Cloud links_ _**(covered in this workshop)**_
+* PL/SQL scripts in Autonomous AI Database (ADB) using delta sharing protocol
+* PL/SQL scripts in Autonomous AI Database (ADB) using Cloud links
+* Data Studio in Autonomous AI Database (ADB) using delta sharing protocol
+* _Data Studio in Autonomous AI Database (ADB) using Cloud links_ _**(covered in this workshop)**_
 
 <!--- comment --->
 
@@ -72,17 +72,17 @@ You may now proceed to the next lab.
 ## Learn More
 
 * [The Share Tool](https://docs.oracle.com/en/database/oracle/sql-developer-web/sdwad/adp-data-share-tool.html#GUID-7EECE78B-336D-4853-BFC3-E78A7B8398DB)
-* [Using Oracle Autonomous Database Serverless](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/index.html)
+* [Using Oracle Autonomous AI Database Serverless](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/index.html)
 * [Oracle Cloud Infrastructure Documentation](https://docs.cloud.oracle.com/en-us/iaas/Content/GSG/Concepts/baremetalintro.htm)
 
 ## Acknowledgements
 
 * **Author:** Lauran K. Serhal, Consulting User Assistance Developer
 * **Contributor:** Alexey Filanovskiy, Senior Product Manager
-* **Last Updated By/Date:** Lauran K. Serhal, November 2024
+* **Last Updated By/Date:** Lauran K. Serhal, November 2025
 
 Data about movies in this workshop were sourced from Wikipedia.
 
-Copyright (C) 2024, Oracle Corporation.
+Copyright (C) 2025, Oracle Corporation.
 
 Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.3 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the section entitled [GNU Free Documentation License](https://oracle-livelabs.github.io/adb/shared/adb-15-minutes/introduction/files/gnu-free-documentation-license.txt)

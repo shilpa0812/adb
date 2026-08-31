@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This lab shows how you can use Data Studio to set up a live feed of data from cloud storage into the Autonomous Database. Feeding data into the database is a useful capability when you have large-scale, regularly added or updated data in cloud storage which is central to your data warehouse, and which will therefore benefit from the performance optimizations of being loaded into the database rather than simply linked from it.
+This lab shows how you can use Data Studio to set up a live feed of data from cloud storage into the Autonomous AI Database. Feeding data into the database is a useful capability when you have large-scale, regularly added or updated data in cloud storage which is central to your data warehouse, and which will therefore benefit from the performance optimizations of being loaded into the database rather than simply linked from it.
 
 There are two types of live feed:
 
@@ -22,14 +22,14 @@ Estimated Time: 30 minutes
 In this lab, you will:
 
 - Set up a new bucket in your cloud storage system, and configure it to send events when objects are changed
-- Use the Autonomous Database's built-in Data Studio application to set up a Data Feed job
+- Use the Autonomous AI Database's built-in Data Studio application to set up a Data Feed job
 - Configure notification rules in your cloud storage system to trigger the Data Feed job to check for and load data whenever data in the bucket is added
 
 ### Prerequisites
 
 To complete this lab, you need to have completed Labs 1 and 2 in this workshop, so that you have:
 
-- Created an Autonomous Data Warehouse instance
+- Created an Autonomous AI Lakehouse instance
 - Created a new QTEAM user
 
 You do not need to have completed Labs 3, 4 or 5.
@@ -52,7 +52,7 @@ You will also need login information for Oracle Cloud Infrastructure so that you
 
 4. Under **Compartment**, select a suitable compartment for the new storage bucket. 
 
->**Note:** If you are using an Oracle Live Labs account, select the compartment created with your account. If you are working in your own tenancy, select any suitable compartment where you can create a new storage bucket. The compartment can be, but does not have to be, the same compartment where your Autonomous Database has been created. This example uses a compartment named 'sandbox'.
+>**Note:** If you are using an Oracle Live Labs account, select the compartment created with your account. If you are working in your own tenancy, select any suitable compartment where you can create a new storage bucket. The compartment can be, but does not have to be, the same compartment where your Autonomous AI Database has been created. This example uses a compartment named 'sandbox'.
 
 5. With a suitable compartment selected, click the **Create Bucket** button to set up a new bucket
 
@@ -76,17 +76,15 @@ You will also need login information for Oracle Cloud Infrastructure so that you
 
 9. Copy the generated URL of the pre-authenticated request, and paste it into a note or other file, and save it. You will need this later in the lab.
 
-  ![Screen showing the generated URL of the Pre-Authenticated Request, with the copy button highlighted](images/par-uri.png)
-
 10. Now we can upload a file into the bucket to use as the basis for the live feed configuration. Any future files that land in the bucket will need to be in the same structure. To do this, first download the following example file to your local machine:
 
   https://objectstorage.us-ashburn-1.oraclecloud.com/p/YtpqXpUpPx1pPXFQa4Githwxx4bxp12q2yZJsCyzN0Y9-kpYr5nAOvLvwZfLHxXF/n/c4u04/b/moviestream_landing/o/custsales/custsales-2020-10.csv
 
 >**Important:** Your computer may not support downloading files to your local disk. If you are in this situation, you may be able to use another structured csv file with a header row, as this is just an example. 
 
-11. Click the **feedlab** bucket to view its details. Under **Objects**, click the **Upload** button.
+11. Click the **feedlab** bucket to view its details. Under **Objects**, click the **Upload objects** button.
 
-12. Find the **custsales-2020-10.csv** file you just downloaded to your local machine, and click the **Upload** button to upload it.
+12. Find the **custsales-2020-10.csv** file you just downloaded to your local machine, and click the **Upload objects** button to upload it.
 
 
 ## Task 2: Use Data Studio to set up a live data feed
@@ -101,7 +99,7 @@ You will also need login information for Oracle Cloud Infrastructure so that you
 
 3. In the top left, click **Create** then select **New Cloud Store Location**
 
-4. Set up a new cloud location named **MovieSalesData**. Select the **Public Bucket** option, and paste in the URL of the pre-authenticated request you created in Task 1.
+4. Set up a new cloud location named **MOVIESALESDATA**. Select the **Public Bucket** option, and paste in the URL of the pre-authenticated request you created in Task 1.
 
   ![The Cloud Location screen, with the Public Bucket selected and the URL pasted in](images/add-feed-location.png)
 
@@ -117,7 +115,7 @@ You will also need login information for Oracle Cloud Infrastructure so that you
 
   ![The Create Live Table Feed button](images/create-live-feed.png)
 
-8. In the first section, **Data Source**, select the **MOVIESALESDATA** cloud store location that you just created, and specify an Object Filter of *csv as shown below. 
+8. In the first section, **Data Source**, select the **MOVIESALESDATA** cloud store location that you just created.
 
   ![The Data Source section of Live Feed configuration](images/feed-datasource.png)
 
@@ -127,7 +125,7 @@ We can see a preview of the file that we uploaded to the bucket. Click **Next** 
 
 10. Under **Preview**, we can see a preview of the target table with the data as it will be fed in. Click **Next** to continue.
 
-11. Under **Live Feed Settings**, click the option to **Enable for Notification** and ensure the option to enable for scheduling is unticked. This means that the live feed is configured to run when a notification is received from the cloud storage system that new or updated data is available, rather than scheduled to look for new or updated data on a regular basis, though both types of live feed are supported. Click **Save** to create the live feed. A dialog will be displayed asking if you want to run the live feed now. Click **No**.
+11. Under **Live Feed Settings**, click the option to **Enable for Notification** and ensure the option to enable for scheduling is unticked. This means that the live feed is configured to run when a notification is received from the cloud storage system that new or updated data is available, rather than scheduled to look for new or updated data on a regular basis, though both types of live feed are supported. Click **Create** to create the live feed. A dialog will be displayed asking if you want to run the live feed now. Click **No**.
 
 >**Note:** It is not important to click **No** here. If you clicked **Yes**, the feed will run and load the file into the table. We will then prompt the live feed to run again in the next task, by uploading another file.
 
@@ -177,7 +175,7 @@ The subscription is now created. It will show as **Pending** for a couple of min
 
   If required, we can set up another rule for object update. This should be specified in exactly the same way, but with **Object - Update** selected as the Event Type, and with a display name such as **Updated\_moviesales\_object**.
 
-  This completes the configuration steps needed to trigger the live table feed job to update the Autonomous Database when an object is added or updated in our cloud storage bucket. All we need to do now is test it!
+  This completes the configuration steps needed to trigger the live table feed job to update the Autonomous AI Database when an object is added or updated in our cloud storage bucket. All we need to do now is test it!
 
 ## Task 4: Test the live feed
 
@@ -189,9 +187,7 @@ To trigger the live table feed, we simply need to upload another csv file into t
 
 >**Important:** Your computer may not support downloading files to your local disk. If you are in this situation, you may be able to use another structured csv file with a header row, as this is just an example. 
 
-2. Then navigate back to **Object Storage - Buckets** in the OCI Console as you did in the first few steps in the lab:
-
-  ![The Storage menu, with Buckets highlighted](images/buckets.png)
+2. Then navigate back to **Object Storage - Buckets** in the OCI Console as you did in the first few steps in the lab.
 
 3. Select your compartment, if not selected already, and click the **feedlab** bucket
 
@@ -199,13 +195,15 @@ To trigger the live table feed, we simply need to upload another csv file into t
 
 4. Under **Objects**, click the **Upload** button.
 
-5. Find the **custsales-2020-11.csv** file you just downloaded to your local machine, and click the **Upload** button to upload it.
+5. Find the **custsales-2020-11.csv** file you just downloaded to your local machine, and click the **Upload objects** button to upload it.
 
 6. Now go back to the Database Actions launchpad, click the **Data Load** card, and select **Feed Data** to view the details of your live feed. The live feed should now show as active. If it does not, click on the Refresh button in the top right, or wait 30 seconds.
 
   ![The live feed showing as active](images/active-livefeed.png)
 
-7. We can now see that over 2m rows have been loaded into the **MOVIESALESDATA** table. Click the live feed, and select **Job Report** to see details.
+>**Note:** If the Live Feed shows a warning icon that it has not been confirmed yet, click the menu option and **Show Confirmation URL**, then click the confirmation URL to confirm the subscription. This will ensure the Live Feed subscription is confirmed.
+
+7. We can now see that over 2m rows have been loaded into the **MOVIESALESDATA** table. Click the live feed to see details.
 
 8. You should now see a preview of the data that has been loaded from the uploaded csv file. Switch to the **Job Report** view from the list on the left. 
 
@@ -225,16 +223,16 @@ To trigger the live table feed, we simply need to upload another csv file into t
 
   This view shows details of all the actions taken for this live feed, including when the OCI subscription was confirmed, when the new file was detected in the bucket, and when the ingest job was triggered. This is also a very useful view to use if something has gone wrong in any of the steps!
   
-  This completes the setup of the live table feed. As new csv files with the same structure as the file just uploaded arrive in the cloud object storage bucket, they will automatically be loaded into the MOVIE\_SALES table in the Autonomous Database, to facilitate fast data analysis. 
+  This completes the setup of the live table feed. As new csv files with the same structure as the file just uploaded arrive in the cloud object storage bucket, they will automatically be loaded into the MOVIE\_SALES table in the Autonomous AI Database, to facilitate fast data analysis. 
 
 ## RECAP
 
-In this lab, you used Data Studio to set up a notification-based feed of data into the Autonomous Database from cloud storage. This is a very useful option where you have large volumes of data arriving into cloud object storage as files but which you need to participate in performance-critical analysis in the database.
+In this lab, you used Data Studio to set up a notification-based feed of data into the Autonomous AI Database from cloud storage. This is a very useful option where you have large volumes of data arriving into cloud object storage as files but which you need to participate in performance-critical analysis in the database.
 
 You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
-- Created By/Date - Mike Matthews Product Management, Autonomous Database, January 2023
+- Created By/Date - Mike Matthews Product Management, Autonomous AI Database, January 2023
 - Contributors - Jayant Mahto, Rick Green
-- Last Updated By - Mike Matthews, April 2024
+- Last Updated By - Mike Matthews, August 2025

@@ -24,56 +24,49 @@ In this lab, you will:
 
 To complete this lab, you need to have the following:
 
-- Completed Autonomous Database provisioning
+- Completed Autonomous AI Database provisioning
 
 ## Task 1: Create New Database User
 
-When you create a new Autonomous Database, you automatically get an account called ADMIN which is your super administrator user. In the real world, you will want to keep your data completely separate from the administration processes. Therefore, you will need to know how to create separate new users and grant them access to your data warehouse. This section will guide you through this process using the "New User" wizard within the SQL Worksheet (one of the built-in tools in Autonomous Data Warehouse).
+When you create a new Autonomous AI Database, you automatically get an account called ADMIN which is your super administrator user. In the real world, you will want to keep your data completely separate from the administration processes. Therefore, you will need to know how to create separate new users and grant them access to your data warehouse. This section will guide you through this process using the "New User" wizard within the SQL Worksheet (one of the built-in tools in Autonomous AI Lakehouse).
 
 For this workshop, we need to create one new user.
 
-1.  Navigate to the **Details** page of the Autonomous Database you provisioned in the "Provision an ADB Instance" lab. Click the **View all database actions** button from the pull down menu on **Database Actions**.
+1.  Navigate to the **Details** page of the Autonomous AI Database you provisioned in the "Provision an ADB Instance" lab. Click the **Database Users** button from the pull down menu on **Database actions**.
     ![Click Database Actions](images/click-database-actions-button.png)
 
-2.  This will take you to the Database Actions page, logged in as the ADMIN user.
+2.  This will take you to the Database Actions User Management page, logged in as the ADMIN user. You can see that your ADMIN user is listed as the current user. On the right-hand side, click the "+ **Create User**" button.
 
-3.  On the Database Actions launchpad page, under Administration, click **Database Users** card.
-    ![Launch Database Users admin page](images/database-users.png)
-
-4.  You can see that your ADMIN user is listed as the current user.  On the right-hand side, click the "+ **Create User**" button.
-
-    ![Click Create User](images/create-user.png)
-
-5.  The **Create User** form will appear on the right-hand side of your browser window. Use the settings below to complete the form:
+3.  The **Create User** form will appear on the right-hand side of your browser window. Use the settings below to complete the form:
 
     - User Name: **QTEAM**
     - Password: make up your own suitably strong password.
  
-    > **Note:** Rules for User Passwords - Autonomous Data Warehouse requires strong passwords. User passwords must meet the following default password complexity rules:
+    > **Note:** Rules for User Passwords - Autonomous AI Lakehouse requires strong passwords. User passwords must meet the following default password complexity rules:
   
     - Password must be between 12 and 30 characters long
     - Must include at least one uppercase letter, one lowercase letter, and one numeric character
     - Cannot contain the username
     - Cannot contain the double quote (") character
 
-    There is more information available in the documentation about password rules and how to create your own password rules. See here: [Create Users on Autonomous Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/manage-users-create.html#GUID-B5846072-995B-4B81-BDCB-AF530BC42847)
+    There is more information available in the documentation about password rules and how to create your own password rules. See here: [Create Users on Autonomous AI Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/manage-users-create.html#GUID-B5846072-995B-4B81-BDCB-AF530BC42847)
   
     - Select **UNLIMITED** from the drop-down menu for **Quota on tablespace DATA**
   
-    Next, you will examine the form.
-  
-6.  When you examine the form, it should look like this:
+4.  Enable RSET, GraphQL, MongoDB API, and Web access
+ 
+5.  The completed **User** tab should look like this:
 
     ![Create user selections](images/create-user-dialog.png)
 
-7.  You need the following user roles to enable tools:
+7.  You need the following user roles to enable the Data Studio tools used in this and other related workshops:
 
     - **DWROLE:** to grant access to load and store data
     - **DATA\_TRANSFORM\_USER:** to grant access to transform data
 
     > **Note:** Access to the Data Transforms tool may grant the user visibility to other users' data since the tool allows you to import and view data from any schema. Please be aware of this and enable this role selectively.
 
-    Click on the **Granted Roles** banner at the top of the form and add the following roles by checking the boxes in the first (Granted) and third columns (Default):
+    Click on the **Granted Roles** tab at the top of the form and add the following roles by checking the boxes in the first (Granted) and third columns (Default):
 
     > **Note:** Ensure that for each role the **Granted** and **Default** options are selected.
  
@@ -81,7 +74,7 @@ For this workshop, we need to create one new user.
 
     Notice that two additional roles have already been automatically assigned: **CONNECT** and **RESOURCE**.  
 
-    Search for **DATA\_TRANSFORM\_USER** role and click on **Granted** and **Default** options.
+    Search for the **DATA\_TRANSFORM\_USER** role and click on **Granted** and **Default** options.
 
     ![Grant roles to the user](images/transformsrole.png)
     
@@ -101,16 +94,16 @@ Now you need to switch to working as the user QTEAM, so you can start the next l
 
 3.  This will launch the Database Actions Launchpad page.
 
-Now you have connected to your Autonomous Data Warehouse with your new user. 
+Now you have connected to your Autonomous AI Lakehouse with your new user. 
 
 You may now **proceed to the next lab**.
 
 ## Learn More
 
-See the documentation on [Managing Users on Autonomous Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/manage.html#GUID-AD7ACC07-AAF7-482A-8845-9C726B1BA86D). This topic describes administration tasks for managing users on Autonomous Database.
+See the documentation on [Managing Users on Autonomous AI Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/manage.html#GUID-AD7ACC07-AAF7-482A-8845-9C726B1BA86D). This topic describes administration tasks for managing users on Autonomous AI Database.
 
 ## Acknowledgements
 
-- Created By/Date - Keith Laker, Product Manager, Autonomous Database, March 2021
+- Created By/Date - Keith Laker, Product Manager, Autonomous AI Database, March 2021
 - Contributors - Nilay Panchal, Rick Green, Patrick Wheeler, Marty Gubar, Bud Endress, Jayant Mahto, Mike Matthews, Ashish Jain
-- Last Updated By - Mike Matthews, April 2024
+- Last Updated By - Mike Matthews, June 2025

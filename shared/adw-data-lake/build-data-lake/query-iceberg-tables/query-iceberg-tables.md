@@ -1,8 +1,10 @@
 # Query Iceberg Tables
 
+_**Note: This is a demo only. You will observe how to access Amazon Athena data from Oracle Autonomous AI Database using external tables, rather than performing the steps yourself.**_
+
 ## Introduction
 
-This lab demonstrates the integration of AWS Athena and Oracle Autonomous Database (ADB). It explores how AWS Athena creates and manages Iceberg tables and how ADB in OCI accesses metadata through AWS Glue. You will learn how to query the Iceberg tables as external tables directly within ADB, using efficient cross-cloud data querying without data replication.
+This lab demonstrates the integration of AWS Athena and Oracle Autonomous AI Database (ADB). It explores how AWS Athena creates and manages Iceberg tables and how ADB in OCI accesses metadata through AWS Glue. You will learn how to query the Iceberg tables as external tables directly within ADB, using efficient cross-cloud data querying without data replication.
 
 ![Iceberg diagram.](images/iceberg-diagram.png =70%x*)
 
@@ -20,13 +22,11 @@ In this lab, we will show you how to do the following:
 
 ### Prerequisites
 
-Access to an ADW and AWS Athena if you choose to perform the steps.
-
-_**Note:** This is not a hands-on task; instead, it is a demo of how to access Amazon Athena data in Autonomous Database using external tables._
+Access to an Autonomous AI Database and AWS Athena if you choose to perform the steps.
 
 ### About Querying Apache Iceberg Tables
 
-Autonomous Database supports querying of Apache Iceberg tables stored in Amazon Web Services (AWS) or in Oracle Cloud Infrastructure (OCI) Object Storage
+Oracle Autonomous AI Database supports querying of Apache Iceberg tables stored in Amazon Web Services (AWS) or in Oracle Cloud Infrastructure (OCI) Object Storage
 
 ### About Amazon Athena
 
@@ -163,7 +163,7 @@ Apache Iceberg is a distributed, community-driven, Apache 2.0-licensed, 100% ope
 
     ![Query Iceberg table.](images/query-iceberg-table-2.png =65%x*)
 
-    The changes to the **`movie_promotion_training`** table in Athena are automatically reflected in Autonomous Database.
+    The changes to the **`movie_promotion_training`** table in Athena are automatically reflected in Oracle Autonomous AI Database.
 
 ## Learn more
 
@@ -174,13 +174,13 @@ You may now proceed to the next lab.
 
 ## Acknowledgements
 
-* **Author:** Lauran K. Serhal, Consulting User Assistance Developer
+* **Author:** Lauran K. Serhal, Consulting User Assistance Developer, Oracle Autonomous AI Database and Multicloud
 * **Contributor:** Alexey Filanovskiy, Senior Principal Product Manager
-* **Last Updated By/Date:** Lauran K. Serhal, November 2024
+* **Last Updated By/Date:** Lauran K. Serhal, March 2026
 
 Data about movies in this workshop were sourced from Wikipedia.
 
-Copyright (C) 2024 Oracle Corporation.
+Copyright (C) 2026 Oracle Corporation.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3

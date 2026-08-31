@@ -4,11 +4,11 @@
 
 This workshop will show you how to use Data Studio's Data Transforms tool to create a data pipeline in order to engineer data for data analysis, data science, or AI. Data can be loaded from a wide selection of heterogenous sources (databases and applications) and can go through complex transformations. You will learn how to define the data load and transforms process and schedule them for periodic execution.
 
-Estimated Workshop Duration: 2 hours, 30 minutes
+Estimated Workshop Duration: 3 hours
 
 ### Who should use this Workshop?
 
-This workshop is useful for anyone who needs to have a detailed knowledge of loading and transforming data in the Autonomous Database. 
+This workshop is useful for anyone who needs to have a detailed knowledge of loading and transforming data in the Autonomous AI Database. 
 
 ### Objectives
 
@@ -44,7 +44,7 @@ If you have any questions about the topics covered in this lab and the entire wo
 
 ## Acknowledgements
 
-- Created By/Date - Jayant Mahto, Product Manager, Autonomous Database, January 2023
+- Created By/Date - Jayant Mahto, Product Manager, Autonomous AI Database, January 2023
 - Contributors - Mike Matthews
 - Last Updated By - Jayant Mahto, July 2024
 

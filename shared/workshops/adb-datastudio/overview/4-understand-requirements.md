@@ -17,7 +17,7 @@ In this workshop, you will learn:
 
 To complete this lab, you need to have completed the previous labs, so that you have:
 
-- Created an Autonomous Data Warehouse instance
+- Created an Autonomous AI Lakehouse instance
 - Created a new QTEAM user with appropriate roles
 - Loaded the demo data for the workshop
 
@@ -28,7 +28,7 @@ To complete this lab, you need to have completed the previous labs, so that you 
     
     **Meeting notes from the weekly marketing team meeting**
     
-    Date: Monday 1-09-2023
+    Date: Monday 1-09-2025
     Attendees: All team members
     
     John, VP of marketing, wants to send discount offers to high value customers.
@@ -64,11 +64,11 @@ To complete this lab, you need to have completed the previous labs, so that you 
     Look for **MOVIESALES\_CA** and other tables needed for this analysis. Make 
     sure all needed columns are available with data populated.
 
-    Use 'Catalog' tool for browsing and searching.
+    Use **Catalog** tool for browsing and searching.
     
     **Load data**
 
-    Load any additional data needed. We have a 'Data Load' tool for this.
+    Load any additional data needed. We have a **Data Load** tool for this.
     
     **Transform and prepare data**
 
@@ -79,19 +79,18 @@ To complete this lab, you need to have completed the previous labs, so that you 
     analyzing data. This table should have all the attributes needed for
     analysis.
 
-    This can be done by using the 'Data Transforms' tool.
+    This can be done by using the **Data Transforms** tool.
     
     **Analyze**
 
-    We need to create a dimensional model for data analysis.
-    Create an Analytic View to analyze sales data by various dimensions such as age group, genre and marital status 
-    using the 'Data Analysis' tool.
+    We need to analyze sales data by various dimensions such as age group, genre and marital status 
+    using the **Analysis** tool.
 
-    Is there anything more we learn from the data? We have a 'Data Insights' tool to automatically
+    Is there anything more we learn from the data? We have a **Insights** tool to automatically
     scan the data for hidden patterns. It will be interesting to see what this tool finds.
 
 
-**Data Studio** in Autonomous Database provides a set of tools to help in such projects, all under one umbrella. There
+**Data Studio** in Autonomous AI Database provides a set of tools to help in such projects, all under one umbrella. There
 is no need to install and manage any additional software. It makes the job of a Data Analyst easy. They 
 already have their hands full in dealing with data and finding value in it. The least they should
 be worried about is which tool to use for the job at hand and where to get them from.
@@ -102,9 +101,9 @@ You may now **proceed to the next lab**.
 
 ## Acknowledgements
 
-- Created By/Date - Jayant Mahto, Product Manager, Autonomous Database, January 2023
+- Created By/Date - Jayant Mahto, Product Manager, Autonomous AI Database, January 2023
 - Contributors - Mike Matthews, Bud Endress, Ashish Jain, Marty Gubar, Rick Green
-- Last Updated By - Jayant Mahto, January 2023
+- Last Updated By - Jayant Mahto, January 2025
 
 
 Copyright (C)  Oracle Corporation.

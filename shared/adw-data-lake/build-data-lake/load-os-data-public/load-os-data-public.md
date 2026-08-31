@@ -4,17 +4,17 @@
 
 In this lab, you will link from your ADB instance to data from the MovieStream data lake on [Oracle Cloud Infrastructure Object Storage](https://www.oracle.com/cloud/storage/object-storage.html) in preparation for exploration and analysis.
 
-You can load data into your Autonomous Database (either Oracle Autonomous Data Warehouse or Oracle Autonomous Transaction Processing) using the ADB built-in tools. Alternatively, you can use other Oracle and third party data integration tools. With the built-in tools, you can link to and load data from:
+You can load data into your Oracle Autonomous AI Database (either Oracle Autonomous AI Lakehouse or Oracle Autonomous AI Transaction Processing) using the ADB built-in tools. Alternatively, you can use other Oracle and third party data integration tools. With the built-in tools, you can link to and load data from:
 
 + Files on your local machine.
 + Tables in remote databases.
 + Files stored in cloud-based object storage (Oracle Cloud Infrastructure Object Storage, Amazon S3, Microsoft Azure Blob Storage, and Google Cloud Storage).
 
-You can also leave data in place in cloud object storage, and link to it from your Autonomous Database.
+You can also leave data in place in cloud object storage, and link to it from your Oracle Autonomous AI Database.
 
-> **Note:** While this lab uses Oracle Autonomous Data Warehouse, the steps are identical for loading data into an Oracle Autonomous Transaction Processing database.
+> **Note:** While this lab uses Oracle Autonomous AI Lakehouse, the steps are identical for loading data into an Oracle Autonomous AI Transaction Processing database.
 
-This workshop explores several methods for loading and linking data to an Oracle Autonomous Database. In this first data loading lab, we practice loading data from public object storage buckets.
+This workshop explores several methods for loading and linking data to an Oracle Autonomous AI Database. In this first data loading lab, we practice loading data from public object storage buckets.
 
 Estimated Time: 10 minutes
 
@@ -26,11 +26,11 @@ Watch the video below for a quick walk-through of the lab.
 In this lab, you will:
 
 * Navigate to the Data Load page.
-* Create tables and load data from public object storage buckets using Data Tools built-in to Oracle Autonomous Database
+* Create tables and load data from public object storage buckets using Data Tools built-in to Oracle Autonomous AI Database
 
 ### Prerequisites
 
-This lab requires completion of **Lab 1: Set up the Workshop Environment > Task 3: Create an Autonomous Data Warehouse Instance**, from the **Contents** menu on the left.
+This lab requires completion of **Lab 1: Setup the Workshop Environment > Task 2: Provision the Autonomous AI Database Instance**, from the **Contents** menu on the left.
 
 ## Task 1: Navigate to the Data Load Page
 
@@ -48,15 +48,15 @@ This lab requires completion of **Lab 1: Set up the Workshop Environment > Task 
 
 ## Task 2: Link to Data in Public Object Storage Buckets and Create External Tables
 
-In this task, you will link to data and create the following external tables in your Autonomous Database instance: **`customer_contact`**, **`genre`**, **`pizza_locations`**, and **`sales_sample`**.
+In this task, you will link to data and create the following external tables in your Oracle Autonomous AI Database instance: **`customer_contact`**, **`pizza_locations`**, and **`sales_sample`**.
 
-1. On the **Data Load Dashboard**, click the **LINK DATA** tile.
+1. On the **Data Load Dashboard**, click the **Link Data** tile.
 
     ![Click Link Data.](images/click-link-data.png)
 
 2. On the **Link Data** page, the **Cloud Store** tab is selected by default.
 
-    ![Select Link Data and Cloud Store.](images/link-data-page.png)
+    ![Select Link Data and Cloud Store.](images/link-data-page.png " ")
 
 3. Copy the following object storage URL and paste it in the **Select Cloud Store Location or enter public URL** field. The **`moviestream_landing`** Oracle Object Storage bucket that contains the data is located in a different tenancy than yours, **c4u04**; therefore, you will use the following URL.
 
@@ -70,23 +70,23 @@ In this task, you will link to data and create the following external tables in 
 
 4. A list of the folders in the selected Object Storage bucket is displayed on left side section of the page. You can drag and drop the desired folders from this public bucket from this section to the data linking job section on the right.
 
-    ![The Load Cloud Object page appears](images/bucket-folders-displayed.png)
+    ![The Load Cloud Object page appears](images/bucket-folders-displayed.png " ")
 
 5. Drag the **`customer_contact`** folder and drop it onto the data linking job section.
 
-    ![Drag the customer_contact folder](images/drag-drop-customer-contact.png)
+    ![Drag the customer_contact folder](images/drag-drop-customer-contact.png " ")
 
 6. A **Link to Single Target Table** dialog box is displayed to prompt you whether or not you want to link all objects in this folder matching **.csv** to a single target table. This folder contains a single file, `customer-contact.csv`. In general, data lake folders contain many files of the same type, as you will see with sales data. Click **Yes**.
 
-    ![Click yes to load objects to a single table.](images/link-to-single-table.png =60%x*)
-
     The **`customer_contact`** target table to be created for the selected `.csv` file is displayed in the data linking job section.
+
+    >**Note:** If you get a warning, ignore it.
 
     ![The customer_contact target table is displayed.](images/customer_contact-target-table.png)
 
-7. Drag and drop the **`genre`**, **`sales_sample`**, and **`pizza_location`** folders onto the data linking job section. Click **Yes** when prompted for each target table.
+7. Drag and drop the **`sales_sample`** and **`pizza_location`** folders onto the data linking job section. Click **Yes** when prompted for each target table.
 
-    ![Drag and drop three more folders.](images/drag-drop-3-folders.png)
+    ![Drag and drop three more folders.](images/drag-drop-2-folders.png)
 
 8. Click the **Settings** icon (pencil) for the **`customer_contact`** link task to view its settings.
 
@@ -100,15 +100,19 @@ In this task, you will link to data and create the following external tables in 
 
 10. Click the **Settings** icon (pencil) for the **`sales_sample`** link task to view its settings.
 
-    ![View the sales-sample load task settings.](images/sales-sample-preview.png =60%x*)
+    ![View the sales-sample load task settings.](images/sales-sample-preview.png =65%x*)
 
-11. The Load tool makes intelligent choices for the target table name and properties. Since this is an initial load, accept the default option of **Create Table**, which conveniently creates the target table in the Autonomous Database instance, without the need to predefine the table in SQL. Change the name of the target table to be created from **SALES_SAMPLE** to **CUSTSALES**. Next, click **Close**.
+11. The Load tool makes intelligent choices for the target table name and properties. Since this is an initial load, accept the default option of **Create Table**, which conveniently creates the target table in the Oracle Autonomous AI Database instance, without the need to predefine the table in SQL. Change the name of the target table to be created from **`SALES_SAMPLE`** to **`CUSTSALES_EXT`**. Next, click **Close**.
 
     ![Update table name](images/change-target-table-name.png)
 
 12. Click **Start** to run the data link job. In the **Start Link From Cloud Store** dialog box, click **Run**.
 
-    ![Run the data load job](images/run-data-link.png)
+    ![Run the data load job](images/click-start.png " ")
+
+    In the **Start Link From Cloud Store** dialog box, click **Run**.
+
+    ![Run the data load job](images/click-run.png)
 
     > **Note:** The link job can take about 2 minutes to complete.
 
@@ -116,15 +120,15 @@ In this task, you will link to data and create the following external tables in 
 
     ![Load job tasks completed. View the genre load task settings.](images/link-completed.png)
 
-14. Click the **Settings** icon (pencil) for the **`genre`** load task to view its settings. Next, select **Table > View Details**.
+14. Click the **Settings** icon (pencil) for the **`CUSTSALES_EXT`** load task to view its settings. Next, select **Table > View Details**.
 
-    ![View genre details](images/view-genre-details.png)
+    ![View genre details](images/view-custsales-ext-details.png)
 
 15. The **Preview** tab is selected by default. This shows the **`genre`** data.
 
-    ![View genre data](images/preview-genre-table.png)
+    ![View genre data](images/preview-custsales-table.png)
 
-16. Click **Close** to exit the **genre** task preview and to return to the Data Load Dashboard.
+16. Click **Close** to return to the Data Load Dashboard.
 
      ![Return to Data Load Dashboard.](images/redisplay-data-load-dashboard.png)
 
@@ -194,24 +198,22 @@ You may now proceed to the next lab.
 ## Learn more
 
 * [Load Data from Files in the Cloud](https://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/autonomous-data-warehouse-cloud&id=CSWHU-GUID-07900054-CB65-490A-AF3C-39EF45505802).
-* [Load Data with Autonomous Database](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/load-data.html#GUID-1351807C-E3F7-4C6D-AF83-2AEEADE2F83E)
+* [Load Data with Oracle Autonomous AI Database](https://docs.oracle.com/en/cloud/paas/autonomous-data-warehouse-cloud/user/load-data.html#GUID-1351807C-E3F7-4C6D-AF83-2AEEADE2F83E)
 * [DBMS_CLOUD Package](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/dbms-cloud-package.html#GUID-CE359BEA-51EA-4DE2-88DB-F21A9FC10721)
 
 You may now proceed to the next lab.
 
 ## Acknowledgements
 
-* **Author:** Lauran K. Serhal, Consulting User Assistance Developer
+* **Author:** Lauran K. Serhal, Consulting User Assistance Developer, Oracle Autonomous AI Database and Multicloud
 * **Contributors:**
     * Alexey Filanovskiy, Senior Principal Product Manager
-    * Mike Matthews, Autonomous Database Product Management
-    * Marty Gubar, Autonomous Database Product Management
-    * Rick Green, Principal Developer, Database User Assistance
-* **Last Updated By/Date:** Lauran K. Serhal, November 2024
+    * Mike Matthews, Autonomous AI Database Product Management
+* **Last Updated By/Date:** Lauran K. Serhal, March 2026
 
 Data about movies in this workshop were sourced from Wikipedia.
 
-Copyright (C) 2024 Oracle Corporation.
+Copyright (C) 2026 Oracle Corporation.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
