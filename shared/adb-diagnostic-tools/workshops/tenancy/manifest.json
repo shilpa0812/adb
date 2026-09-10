@@ -44,12 +44,6 @@
             "filename": "../../generate-performance-hub-report/generate-performance-hub-report.md"
         },
         {
-            "title": "Connect with SQL Worksheet",
-            "description": "Connect with SQL Worksheet",
-            "type": "tenancy",
-            "filename": "/common/building-blocks/blocks/adb/connect/connect-sql-worksheet.md"
-        },
-        {
             "title": "Lab 1: Translate individual SQL statements from a non-Oracle database to Oracle SQL",
             "description":"Translate individual SQL statements from a non-Oracle database to Oracle SQL",
             "type": "tenancy",

@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Diagnostic Tools to Gather Performance Data in Autonomous AI Database",
+    "workshoptitle": "Migrate Applications from Non-Oracle Databases to Autonomous Database",
     "help": "livelabs-help-db_us@oracle.com",
     "include": {
         "adb-goto-service-body.md":"/common/building-blocks/tasks/adb/goto-service-body.md",
@@ -42,12 +42,6 @@
             "description": "Create a workload and analyze it in Performance Hub",
             "type": "freetier",
             "filename": "../../generate-performance-hub-report/generate-performance-hub-report.md"
-        },
-        {
-            "title": "Connect with SQL Worksheet",
-            "description": "Connect with SQL Worksheet",
-            "type": "freetier",
-            "filename": "/common/building-blocks/blocks/adb/connect/connect-sql-worksheet.md"
         },
         {
             "title": "Lab 1: Translate individual SQL statements from a non-Oracle database to Oracle SQL",
