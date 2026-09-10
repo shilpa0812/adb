@@ -44,24 +44,6 @@
             "filename": "../../generate-performance-hub-report/generate-performance-hub-report.md"
         },
         {
-            "title": "Lab 1: Translate individual SQL statements from a non-Oracle database to Oracle SQL",
-            "description":"Translate individual SQL statements from a non-Oracle database to Oracle SQL",
-            "type": "freetier",
-            "filename": "../../translate-postgre-sql-statements-to-oracle-sql/translate-postgre-sql-statements-to-oracle-sql.md"
-        },
-        {
-            "title": "Lab 2: Run PostgreSQL statements in Autonomous Database",
-            "description":"Run PostgreSQL statements in Autonomous Database",
-            "type": "freetier",
-            "filename": "../../run-postgre-sql-statements-in-adbs/run-postgre-sql-statements-in-adbs.md"
-          },
-       {
-            "title": "Lab 3: Migrate PostgreSQL File to Oracle SQL",
-            "description": "Migrate PostgreSQL File to Oracle SQL",
-            "type": "freetier",
-            "filename":"../../migrate-postgre-sql-files-in-adbs/migrate-postgre-sql-files-in-adbs.md"
-        },
-        {
             "title": "Need Help?",
             "description": "Solutions to Common Problems and Directions for Receiving Live Help",
             "filename":"https://oracle-livelabs.github.io/common/labs/need-help/need-help-freetier.md"
