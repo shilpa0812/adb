@@ -14,6 +14,11 @@
             "filename": "../../intro/intro.md"
         },
         {
+            "title": "Get Started - Cloud Login",
+            "description": "Log in to Oracle Cloud",
+            "filename": "../../get-started-cloud-login/get-started-cloud-login.md"
+        },
+        {
             "title": "Provision an Oracle Autonomous AI Database",
             "description": "Provision an Autonomous AI Database instance",
             "type": "tenancy",

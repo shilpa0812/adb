@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Diagnostic Tools to Gather Performance Data in Autonomous AI Database",
+    "workshoptitle": "Migrate Applications from Non-Oracle Databases to Autonomous Database",
     "help": "livelabs-help-db_us@oracle.com",
     "include": {
         "adb-goto-service-body.md":"/common/building-blocks/tasks/adb/goto-service-body.md",
@@ -12,6 +12,11 @@
             "title": "Introduction",
             "description": "Introduction",
             "filename": "../../intro/intro.md"
+        },
+        {
+            "title": "Get Started - Cloud Login",
+            "description": "Log in to Oracle Cloud",
+            "filename": "../../get-started-cloud-login/get-started-cloud-login.md"
         },
         {
             "title": "Provision an Oracle Autonomous AI Database",
@@ -42,6 +47,24 @@
             "description": "Create a workload and analyze it in Performance Hub",
             "type": "freetier",
             "filename": "../../generate-performance-hub-report/generate-performance-hub-report.md"
+        },
+        {
+            "title": "Lab 1: Translate individual SQL statements from a non-Oracle database to Oracle SQL",
+            "description":"Translate individual SQL statements from a non-Oracle database to Oracle SQL",
+            "type": "freetier",
+            "filename": "../../translate-postgre-sql-statements-to-oracle-sql/translate-postgre-sql-statements-to-oracle-sql.md"
+        },
+        {
+            "title": "Lab 2: Run PostgreSQL statements in Autonomous Database",
+            "description":"Run PostgreSQL statements in Autonomous Database",
+            "type": "freetier",
+            "filename": "../../run-postgre-sql-statements-in-adbs/run-postgre-sql-statements-in-adbs.md"
+          },
+       {
+            "title": "Lab 3: Migrate PostgreSQL File to Oracle SQL",
+            "description": "Migrate PostgreSQL File to Oracle SQL",
+            "type": "freetier",
+            "filename":"../../migrate-postgre-sql-files-in-adbs/migrate-postgre-sql-files-in-adbs.md"
         },
         {
             "title": "Need Help?",
