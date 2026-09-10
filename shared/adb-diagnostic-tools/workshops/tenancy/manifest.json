@@ -1,0 +1,76 @@
+{
+    "workshoptitle": "Migrate Applications from Non-Oracle Databases to Autonomous Database",
+    "help": "livelabs-help-db_us@oracle.com",
+    "include": {
+        "adb-goto-service-body.md":"/common/building-blocks/tasks/adb/goto-service-body.md",
+        "adb-provision-body.md":"/common/building-blocks/tasks/adb/provision-body.md",
+        "adb-connect-with-sql-worksheet-body.md":"/common/building-blocks/tasks/adb/connect/connect-sql-worksheet-body.md"
+        },
+    "variables": ["./variables.json"],
+	"tutorials": [
+        {
+            "title": "Introduction",
+            "description": "Introduction",
+            "filename": "../../intro/intro.md"
+        },
+        {
+            "title": "Provision an Oracle Autonomous AI Database",
+            "description": "Provision an Autonomous AI Database instance",
+            "type": "tenancy",
+            "filename": "../../provision-autonomous-ai-database/provision-autonomous-ai-database.md"
+        },
+        {
+            "title": "Create Compute Nodes",
+            "description": "Create an OCI Compute instance",
+            "type": "tenancy",
+            "filename": "../../create-compute-nodes/create-compute-nodes.md"
+        },
+        {
+            "title": "Connect to Autonomous AI Database with SQL Developer",
+            "description": "Connect SQL Developer using an instance wallet",
+            "type": "tenancy",
+            "filename": "../../connect-sql-developer/connect-sql-developer.md"
+        },
+        {
+            "title": "Generate ASH Reports",
+            "description": "Analyze active sessions and generate an HTML ASH report",
+            "type": "tenancy",
+            "filename": "../../generate-ash-reports/generate-ash-reports.md"
+        },
+        {
+            "title": "Generate a Performance Hub Report",
+            "description": "Create a workload and analyze it in Performance Hub",
+            "type": "tenancy",
+            "filename": "../../generate-performance-hub-report/generate-performance-hub-report.md"
+        },
+        {
+            "title": "Connect with SQL Worksheet",
+            "description": "Connect with SQL Worksheet",
+            "type": "tenancy",
+            "filename": "/common/building-blocks/blocks/adb/connect/connect-sql-worksheet.md"
+        },
+        {
+            "title": "Lab 1: Translate individual SQL statements from a non-Oracle database to Oracle SQL",
+            "description":"Translate individual SQL statements from a non-Oracle database to Oracle SQL",
+            "type": "tenancy",
+            "filename": "../../translate-postgre-sql-statements-to-oracle-sql/translate-postgre-sql-statements-to-oracle-sql.md"
+        },
+        {
+            "title": "Lab 2: Run PostgreSQL statements in Autonomous Database",
+            "description":"Run PostgreSQL statements in Autonomous Database",
+            "type": "tenancy",
+            "filename": "../../run-postgre-sql-statements-in-adbs/run-postgre-sql-statements-in-adbs.md"
+          },
+       {
+            "title": "Lab 3: Migrate PostgreSQL File to Oracle SQL",
+            "description": "Migrate PostgreSQL File to Oracle SQL",
+            "type": "tenancy",
+            "filename":"../../migrate-postgre-sql-files-in-adbs/migrate-postgre-sql-files-in-adbs.md"
+        },
+        {
+            "title": "Need Help?",
+            "description": "Solutions to Common Problems and Directions for Receiving Live Help",
+            "filename":"https://oracle-livelabs.github.io/common/labs/need-help/need-help-freetier.md"
+        }
+    ]
+}
