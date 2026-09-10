@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Migrate Applications from Non-Oracle Databases to Autonomous Database",
+    "workshoptitle": "Diagnostic Tools to Gather Performance Data in Autonomous AI Database",
     "help": "livelabs-help-db_us@oracle.com",
     "include": {
         "adb-goto-service-body.md":"/common/building-blocks/tasks/adb/goto-service-body.md",
