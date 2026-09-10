@@ -108,3 +108,9 @@ In this lab, you will:
     > **Note:** If the connection test fails behind a corporate VPN or firewall, confirm that the required Oracle Database ports and hosts are allowed. Contact your network administrator if necessary.
 
 You may now **proceed to the next lab**.
+
+## Acknowledgements
+
+- **Authors** - Shilpa Sharma, Principal User Assistance Developer
+- **Contributors** - Nigel Bayliss, Product Management Architect
+- **Last Updated By/Date** - Shilpa Sharma, September 2026

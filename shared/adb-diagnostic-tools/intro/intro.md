@@ -44,3 +44,8 @@ Let's begin! If you need to create an account, please click **Get Started** in t
 - **Authors** - Shilpa Sharma, Prinicipal User Assistance Developer
 - **Contributors** - Nigel Bayliss, Product Management Architect
 - **Last Updated By/Date** - Shilpa Sharma, September 2026
+## Acknowledgements
+
+- **Authors** - Shilpa Sharma, Principal User Assistance Developer
+- **Contributors** - Nigel Bayliss, Product Management Architect
+- **Last Updated By/Date** - Shilpa Sharma, September 2026

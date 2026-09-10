@@ -173,3 +173,9 @@ DROP TABLE ll_ash_customers PURGE;
 ```
 
 You may now **proceed to the next lab**.
+
+## Acknowledgements
+
+- **Authors** - Shilpa Sharma, Principal User Assistance Developer
+- **Contributors** - Nigel Bayliss, Product Management Architect
+- **Last Updated By/Date** - Shilpa Sharma, September 2026

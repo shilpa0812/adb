@@ -53,3 +53,9 @@ If you've signed out of Oracle Cloud, use these steps to sign back in.
     ![Oracle Cloud Console home page](images/home-page.png " ")
 
 You may now **proceed to the next lab**.
+
+## Acknowledgements
+
+- **Authors** - Shilpa Sharma, Principal User Assistance Developer
+- **Contributors** - Nigel Bayliss, Product Management Architect
+- **Last Updated By/Date** - Shilpa Sharma, September 2026

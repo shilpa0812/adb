@@ -130,3 +130,9 @@ Review the Performance Hub charts and tabs for the selected time range. Record t
 Confirm that the workload period appears in the charts and note any top SQL statements, wait classes, or database load spikes.
 
 You may now **proceed to the next lab**.
+
+## Acknowledgements
+
+- **Authors** - Shilpa Sharma, Principal User Assistance Developer
+- **Contributors** - Nigel Bayliss, Product Management Architect
+- **Last Updated By/Date** - Shilpa Sharma, September 2026

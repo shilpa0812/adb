@@ -50,3 +50,9 @@ Estimated Time: 10 minutes
 8. You can review the provisioning progress on the **Work requests** page.
 
 You may now **proceed to the next lab**.
+
+## Acknowledgements
+
+- **Authors** - Shilpa Sharma, Principal User Assistance Developer
+- **Contributors** - Nigel Bayliss, Product Management Architect
+- **Last Updated By/Date** - Shilpa Sharma, September 2026
