@@ -49,6 +49,12 @@
             "filename": "../../generate-performance-hub-report/generate-performance-hub-report.md"
         },
         {
+            "title": "Generate SQL Monitor Reports",
+            "description": "Review a monitored SQL execution and save an active HTML report",
+            "type": "freetier",
+            "filename": "../../generate-sql-monitor-reports/generate-sql-monitor-reports.md"
+        },
+        {
             "title": "Need Help?",
             "description": "Solutions to Common Problems and Directions for Receiving Live Help",
             "filename":"https://oracle-livelabs.github.io/common/labs/need-help/need-help-freetier.md"

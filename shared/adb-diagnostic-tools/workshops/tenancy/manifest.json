@@ -49,6 +49,12 @@
             "filename": "../../generate-performance-hub-report/generate-performance-hub-report.md"
         },
         {
+            "title": "Generate SQL Monitor Reports",
+            "description": "Review a monitored SQL execution and save an active HTML report",
+            "type": "tenancy",
+            "filename": "../../generate-sql-monitor-reports/generate-sql-monitor-reports.md"
+        },
+        {
             "title": "Lab 1: Translate individual SQL statements from a non-Oracle database to Oracle SQL",
             "description":"Translate individual SQL statements from a non-Oracle database to Oracle SQL",
             "type": "tenancy",

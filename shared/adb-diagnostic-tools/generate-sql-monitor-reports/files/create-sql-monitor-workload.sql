@@ -1,0 +1,44 @@
+BEGIN
+  EXECUTE IMMEDIATE 'DROP TABLE ll_sqlmon_orders PURGE';
+EXCEPTION
+  WHEN OTHERS THEN
+    IF SQLCODE != -942 THEN RAISE; END IF;
+END;
+/
+
+BEGIN
+  EXECUTE IMMEDIATE 'DROP TABLE ll_sqlmon_customers PURGE';
+EXCEPTION
+  WHEN OTHERS THEN
+    IF SQLCODE != -942 THEN RAISE; END IF;
+END;
+/
+
+CREATE TABLE ll_sqlmon_customers NOLOGGING AS
+SELECT LEVEL AS customer_id,
+       'Customer ' || LEVEL AS customer_name,
+       CASE MOD(LEVEL, 5)
+         WHEN 0 THEN 'NORTH'
+         WHEN 1 THEN 'SOUTH'
+         WHEN 2 THEN 'EAST'
+         WHEN 3 THEN 'WEST'
+         ELSE 'CENTRAL'
+       END AS region
+FROM   dual
+CONNECT BY LEVEL <= 50000;
+
+CREATE TABLE ll_sqlmon_orders NOLOGGING AS
+SELECT LEVEL AS order_id,
+       MOD(LEVEL, 50000) + 1 AS customer_id,
+       TRUNC(SYSDATE) - MOD(LEVEL, 730) AS order_date,
+       CASE WHEN MOD(LEVEL, 10) < 7 THEN 'CLOSED' ELSE 'OPEN' END AS order_status,
+       ROUND(25 + MOD(LEVEL, 10000) / 10, 2) AS order_total,
+       RPAD('payload', 120, 'x') AS padding
+FROM   dual
+CONNECT BY LEVEL <= 600000;
+
+BEGIN
+  DBMS_STATS.GATHER_TABLE_STATS(USER, 'LL_SQLMON_CUSTOMERS');
+  DBMS_STATS.GATHER_TABLE_STATS(USER, 'LL_SQLMON_ORDERS');
+END;
+/
