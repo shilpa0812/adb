@@ -37,6 +37,12 @@
             "filename": "../../connect-sql-developer/connect-sql-developer.md"
         },
         {
+            "title": "OCIPing Utility Overview",
+            "description": "Understand OCIPing network latency diagnostics and supporting resources",
+            "type": "tenancy",
+            "filename": "../../ociping-utility-overview/ociping-utility-overview.md"
+        },
+        {
             "title": "Generate ASH Reports",
             "description": "Analyze active sessions and generate an HTML ASH report",
             "type": "tenancy",
