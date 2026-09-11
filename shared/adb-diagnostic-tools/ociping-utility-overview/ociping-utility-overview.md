@@ -44,17 +44,25 @@ The demonstration is provided as an overview. Commands and connection values sho
 
 ## Utility Access
 
-The terminal image identifies the following RWP*Load Simulator 3.3.0 Linux x86-64 binary package:
+The demonstration identifies the following command for downloading the RWP*Load Simulator 3.3.0 Linux x86-64 binary package:
 
-`https://github.com/oracle/rwloadsim/releases/download/v3.3.0/generated-linux-x86_64-bin-3.3.0.tgz`
-
-![RWP Load Simulator binary package location](images/ociping-package-location.png " ")
+```shell
+<copy>
+wget https://github.com/oracle/rwloadsim/releases/download/v3.3.0/generated-linux-x86_64-bin-3.3.0.tgz
+</copy>
+```
 
 The release packages are available from the [Oracle RWP*Load Simulator releases page](https://github.com/oracle/rwloadsim/releases). Select the package that matches the client operating system and architecture.
 
 ## Documentation
 
 Refer to the following sources for requirements, supported usage, and additional context:
+
+```text
+<copy>
+https://support.oracle.com/epmos/faces/DocumentDisplay?id=2064368.1
+</copy>
+```
 
 - [OCIPing Utility to Measure Network Latency](https://support.oracle.com/epmos/faces/DocumentDisplay?id=2064368.1) on My Oracle Support. An Oracle Support account may be required.
 - [RWP*Load Simulator repository](https://github.com/oracle/rwloadsim), including the user guide in the `docs` directory.
