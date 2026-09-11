@@ -58,13 +58,8 @@ The release packages are available from the [Oracle RWP*Load Simulator releases 
 
 Refer to the following sources for requirements, supported usage, and additional context:
 
-```text
-<copy>
-https://support.oracle.com/epmos/faces/DocumentDisplay?id=2064368.1
-</copy>
-```
+- [OCIPing Utility to Measure Network Latency](https://support.oracle.com/epmos/faces/DocumentDisplay?id=2064368.1) is available on My Oracle Support. An Oracle Support account may be required.
 
-- [OCIPing Utility to Measure Network Latency](https://support.oracle.com/epmos/faces/DocumentDisplay?id=2064368.1) on My Oracle Support. An Oracle Support account may be required.
 - [RWP*Load Simulator repository](https://github.com/oracle/rwloadsim), including the user guide in the `docs` directory.
 - [RWP*Load Simulator reference manual](https://oracle.github.io/rwloadsim/refman/).
 
