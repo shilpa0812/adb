@@ -1,8 +1,8 @@
-# Generate a Performance Hub Report
+# Introduction to Performance Hub
 
 ## Introduction
 
-Performance Hub helps you monitor Oracle Autonomous AI Database activity for a selected time range. In this lab, you create a small workload, open Performance Hub from the OCI Console, and review key performance statistics that can be shared with Oracle Support.
+Performance Hub helps you monitor Oracle Autonomous AI Database activity for a selected time range. In this lab, you create a small workload, open Performance Hub from the OCI Console, and walk through the key performance statistics available there.
 
 Estimated Time: 15 minutes
 
@@ -113,13 +113,13 @@ In this lab, you will:
 
     ![Review ASH Analytics dimensions and drill-down details](images/review-ash-details.png " ")
 
-    > **Note:** Confirm that the selected time range includes the workload peak before recording report details.
+    > **Note:** Confirm that the selected time range includes the workload peak before recording your findings.
 
 ## Task 3: Review Performance Statistics
 
 Review the Performance Hub charts and tabs for the selected time range. Record the following information for further analysis or an Oracle Support request:
 
-| Report area | What to look for |
+| Performance area | What to look for |
 | --- | --- |
 | Database Load | Identify workload peaks and compare database activity across the selected time range. |
 | Average Active Sessions | Review how many sessions were active and whether activity increased during the workload. |
