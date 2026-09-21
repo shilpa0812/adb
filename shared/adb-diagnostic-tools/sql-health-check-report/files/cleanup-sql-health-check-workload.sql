@@ -1,0 +1,9 @@
+<copy>
+BEGIN
+  EXECUTE IMMEDIATE 'DROP TABLE adb_sqldev_orders PURGE';
+EXCEPTION
+  WHEN OTHERS THEN
+    IF SQLCODE != -942 THEN RAISE; END IF;
+END;
+/
+</copy>

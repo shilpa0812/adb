@@ -61,6 +61,18 @@
             "filename": "../../generate-sql-monitor-reports/generate-sql-monitor-reports.md"
         },
         {
+            "title": "Use AWR and ADDM in Performance Hub",
+            "description": "Capture before and after AWR data and review ADDM findings in Performance Hub",
+            "type": "tenancy",
+            "filename": "../../awr-and-addm-performance-hub/awr-and-addm-performance-hub.md"
+        },
+        {
+            "title": "Create a SQL Health Check Report",
+            "description": "Identify a SQL statement and create a focused SQL Health Check style report",
+            "type": "tenancy",
+            "filename": "../../sql-health-check-report/sql-health-check-report.md"
+        },
+        {
             "title": "Lab 1: Translate individual SQL statements from a non-Oracle database to Oracle SQL",
             "description":"Translate individual SQL statements from a non-Oracle database to Oracle SQL",
             "type": "tenancy",
