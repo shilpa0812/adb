@@ -49,8 +49,8 @@
             "filename": "../../generate-ash-reports/generate-ash-reports.md"
         },
         {
-            "title": "Generate a Performance Hub Report",
-            "description": "Create a workload and analyze it in Performance Hub",
+            "title": "Introduction to Performance Hub",
+            "description": "Create a workload and explore Performance Hub activity and performance statistics",
             "type": "tenancy",
             "filename": "../../generate-performance-hub-report/generate-performance-hub-report.md"
         },
