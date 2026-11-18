@@ -67,6 +67,12 @@
             "filename": "../../generate-ash-reports/generate-ash-reports.md"
         },
         {
+            "title": "Generate a SQL Tuning Advisor Report",
+            "description": "Create a test workload, generate a SQL Tuning Advisor report, and prepare it for Oracle Support",
+            "type": "freetier",
+            "filename": "../../generate-sql-tuning-advisor-report/generate-sql-tuning-advisor-report.md"
+        },
+        {
             "title": "OCIPing Utility Overview",
             "description": "Understand OCIPing network latency diagnostics and supporting resources",
             "type": "freetier",

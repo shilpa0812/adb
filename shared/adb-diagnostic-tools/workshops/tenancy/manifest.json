@@ -37,12 +37,6 @@
             "filename": "../../connect-sql-developer/connect-sql-developer.md"
         },
         {
-            "title": "OCIPing Utility Overview",
-            "description": "Understand OCIPing network latency diagnostics and supporting resources",
-            "type": "tenancy",
-            "filename": "../../ociping-utility-overview/ociping-utility-overview.md"
-        },
-        {
             "title": "Generate ASH Reports",
             "description": "Analyze active sessions and generate an HTML ASH report",
             "type": "tenancy",
@@ -89,6 +83,18 @@
             "description": "Migrate PostgreSQL File to Oracle SQL",
             "type": "tenancy",
             "filename":"../../migrate-postgre-sql-files-in-adbs/migrate-postgre-sql-files-in-adbs.md"
+        },
+        {
+            "title": "Generate a SQL Tuning Advisor Report",
+            "description": "Create a test workload, generate a SQL Tuning Advisor report, and prepare it for Oracle Support",
+            "type": "tenancy",
+            "filename": "../../generate-sql-tuning-advisor-report/generate-sql-tuning-advisor-report.md"
+        },
+        {
+            "title": "OCIPing Utility Overview",
+            "description": "Understand OCIPing network latency diagnostics and supporting resources",
+            "type": "tenancy",
+            "filename": "../../ociping-utility-overview/ociping-utility-overview.md"
         },
         {
             "title": "Need Help?",
