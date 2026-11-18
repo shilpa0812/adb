@@ -37,28 +37,10 @@
             "filename": "../../connect-sql-developer/connect-sql-developer.md"
         },
         {
-            "title": "OCIPing Utility Overview",
-            "description": "Understand OCIPing network latency diagnostics and supporting resources",
-            "type": "freetier",
-            "filename": "../../ociping-utility-overview/ociping-utility-overview.md"
-        },
-        {
-            "title": "Generate ASH Reports",
-            "description": "Analyze active sessions and generate an HTML ASH report",
-            "type": "freetier",
-            "filename": "../../generate-ash-reports/generate-ash-reports.md"
-        },
-        {
             "title": "Introduction to Performance Hub",
             "description": "Create a workload and explore Performance Hub activity and performance statistics",
             "type": "freetier",
             "filename": "../../generate-performance-hub-report/generate-performance-hub-report.md"
-        },
-        {
-            "title": "Generate SQL Monitor Reports",
-            "description": "Review a monitored SQL execution and save an active HTML report",
-            "type": "freetier",
-            "filename": "../../generate-sql-monitor-reports/generate-sql-monitor-reports.md"
         },
         {
             "title": "Use AWR and ADDM in Performance Hub",
@@ -67,10 +49,28 @@
             "filename": "../../awr-and-addm-performance-hub/awr-and-addm-performance-hub.md"
         },
         {
+            "title": "Generate SQL Monitor Reports",
+            "description": "Review a monitored SQL execution and save an active HTML report",
+            "type": "freetier",
+            "filename": "../../generate-sql-monitor-reports/generate-sql-monitor-reports.md"
+        },
+        {
             "title": "Create a SQL Health Check Report",
             "description": "Identify a SQL statement and create a focused SQL Health Check style report",
             "type": "freetier",
             "filename": "../../sql-health-check-report/sql-health-check-report.md"
+        },
+        {
+            "title": "Generate ASH Reports",
+            "description": "Analyze active sessions and generate an HTML ASH report",
+            "type": "freetier",
+            "filename": "../../generate-ash-reports/generate-ash-reports.md"
+        },
+        {
+            "title": "OCIPing Utility Overview",
+            "description": "Understand OCIPing network latency diagnostics and supporting resources",
+            "type": "freetier",
+            "filename": "../../ociping-utility-overview/ociping-utility-overview.md"
         },
         {
             "title": "Need Help?",
