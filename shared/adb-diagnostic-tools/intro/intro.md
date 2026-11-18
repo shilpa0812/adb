@@ -4,6 +4,15 @@
 
 This live lab uses a small set of diagnostic tools to help you quickly characterize a performance problem, collect objective evidence, and identify where performance issues lie (SQL, wait events, CPU, I/O, or network). The goal is to start with high-level observability and then drill down, using the least intrusive tools first to collect the diagnostic data.
 
+Autonomous Database automates many performance-management tasks, but some issues require further investigation. Use evidence to guide changes instead of guessing or increasing resources before checking workload and infrastructure metrics.
+
+### **Troubleshooting Approach**
+
+1. **Characterize the issue.** Identify a specific business function, workload, or SQL statement that demonstrates the problem. Record when it occurs, whether it is intermittent, and the current performance compared with a target or known-good result. Compare like-for-like systems and isolate the workload when possible.
+2. **Check common configuration factors.** Review the client connection and network path, database service choice, parallelism, and optimizer statistics, especially after a data migration.
+3. **Start with Performance Hub.** Review database load and identify the workload or SQL statement to investigate.
+4. **Collect and share evidence.** Capture diagnostic data for the period of poor performance, describe the issue in an Oracle Support request, and upload the collected information.
+
 | Diagnostic Tool | When to Use It | What It Provides |
 | --- | --- | --- |
 | [**Autonomous Database Performance Hub**](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/performance-hub.html) | Characterize the performance problem and perform an initial investigation. If you can identify individual SQL statements that are long-running, download a SQL Monitor report. | Provides a centralized view of database performance, workload activity, SQL performance, waits, CPU, I/O, ASH, and ADDM recommendations. |
