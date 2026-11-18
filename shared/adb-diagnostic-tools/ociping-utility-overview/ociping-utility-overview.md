@@ -2,7 +2,7 @@
 
 ## Introduction
 
-OCIPing is a diagnostic utility for evaluating Oracle client-to-database connectivity and SQL*Net network latency. It can help distinguish network-related response time from database processing time when an application or client experiences slow or inconsistent connections.
+OCIPing is a diagnostic utility that measures the time for a lightweight Oracle Call Interface round trip over an existing database connection. It can help assess client-to-database round-trip latency when an application with frequent, short database calls experiences performance issues.
 
 Estimated Time: 5 minutes
 
@@ -10,29 +10,24 @@ Estimated Time: 5 minutes
 
 In this lab, you will learn:
 
-- What the OCIPing utility measures.
-- When OCIPing information is useful during a performance investigation.
-- Where to obtain the utility and its documentation.
-- What information is demonstrated in a typical OCIPing session.
+- What OCIPing measures.
+- When its results are useful.
+- Where to download the utility and find its documentation.
 
 ### Prerequisites
 
-- Access to a Linux client host with Oracle Client libraries configured.
+- Access to a client host running an operating system supported by the selected package, with Oracle Client libraries configured.
 - Network access from the client host to the target Oracle Database service.
-- A valid Oracle Database connect descriptor and credentials when running the utility independently.
+- A valid Oracle Database connect descriptor and database credentials. Avoid putting a password directly in a command.
 
 ## About OCIPing
 
-OCIPing performs lightweight database round trips through Oracle Call Interface connectivity. The resulting measurements provide evidence about client-to-database communication and can help identify latency, intermittent connectivity, or network-path behavior.
+OCIPing repeatedly measures the time for an OCIPing call over a database connection. The results provide evidence about round-trip performance between the client and database service; they do not identify the root cause of a delay by themselves.
 
 OCIPing is most useful when:
 
-- An application connects successfully but database requests appear slower from one client location than another.
-- Network latency is suspected between a database client and an Oracle Database service.
-- A support investigation requires repeatable client-to-database round-trip measurements.
-- You need to compare connectivity characteristics across hosts, routes, or database services.
-
-OCIPing results should be reviewed with other diagnostic evidence. They do not replace database-side analysis using tools such as AWR, ASH, Performance Hub, or SQL Monitor.
+- An application makes many short database calls and network round-trip latency is suspected.
+- You need repeatable measurements from the affected client or a comparison client.
 
 ## Demo Overview
 
@@ -44,32 +39,24 @@ The demonstration is provided as an overview. Commands and connection values sho
 
 ## Utility Access
 
-The demonstration identifies the following command for downloading the RWP*Load Simulator 3.3.0 Linux x86-64 binary package:
-
-```shell
-<copy>
-wget https://github.com/oracle/rwloadsim/releases/download/v3.3.0/generated-linux-x86_64-bin-3.3.0.tgz
-</copy>
-```
-
-The release packages are available from the [Oracle RWP*Load Simulator releases page](https://github.com/oracle/rwloadsim/releases). Select the package that matches the client operating system and architecture.
+Download the RWP*Load Simulator package for the client operating system and architecture from the [RWP*Load Simulator releases page](https://github.com/oracle/rwloadsim/releases). The demonstration uses a Linux client.
 
 ## Documentation
 
-Refer to the following sources for requirements, supported usage, and additional context:
-
-- [OCIPing Utility to Measure Network Latency](https://support.oracle.com/epmos/faces/DocumentDisplay?id=2064368.1) is available on My Oracle Support. An Oracle Support account may be required.
-
-- [RWP*Load Simulator repository](https://github.com/oracle/rwloadsim), including the user guide in the `docs` directory.
-- [RWP*Load Simulator reference manual](https://oracle.github.io/rwloadsim/refman/).
-
-Before using OCIPing for an Oracle Support request, confirm the applicable version, platform requirements, and requested command options in the My Oracle Support document.
+- [OCIPing documentation](https://oracle.github.io/rwloadsim/refman/ociping.html) describes usage and available options.
+- [MOS Note 3008087.1: How to measure network latency for Oracle Database applications in OCI](https://support.oracle.com/support/?anchorId=&kmContentId=3008087&page=sptemplate&sptemplate=km-article) provides additional background.
 
 ## Understanding the Results
 
-Review OCIPing output for successful connections, reported round-trip measurements, variation between repeated measurements, and failures or timeouts. Compare results from the affected client with results from another client or network location when possible.
+By default, OCIPing reports a round-trip time in milliseconds about once per second for 60 seconds. Each measurement is followed by the elapsed time. The summary reports the mean, standard deviation, minimum, and maximum.
 
-Capture the following context with the results:
+- The mean is the average round-trip time.
+- The standard deviation shows how much measurements varied during the run.
+- The minimum and maximum show the range of measured times.
+
+Review the output for failed connections, timeouts, or large variation. Compare repeat runs from the affected client with a comparison client when possible, using the same database service. OCIPing shows observed round-trip performance; it does not establish the cause of a delay.
+
+Save the output and include it with an Oracle Support request when requested. Include this context:
 
 | Information | Why it matters |
 | --- | --- |
@@ -78,7 +65,7 @@ Capture the following context with the results:
 | Database service and region | Identifies the target endpoint without exposing credentials. |
 | Test date, time, and time zone | Correlates the results with other diagnostic data. |
 | Network route or client location | Supports comparison between affected and unaffected paths. |
-| OCIPing version and options | Makes the measurement reproducible. |
+| OCIPing version and command options | Makes the measurement reproducible. |
 
 Do not include passwords, wallet contents, private keys, or other credentials in an evidence bundle.
 
