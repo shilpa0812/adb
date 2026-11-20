@@ -1,3 +1,0 @@
-SELECT object_name,
-       bytes
-FROM   DBMS_CLOUD.LIST_FILES('SQL_TCB_DIR:LL_TCB_CASE*');

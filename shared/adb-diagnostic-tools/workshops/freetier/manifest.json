@@ -67,22 +67,16 @@
             "filename": "../../generate-ash-reports/generate-ash-reports.md"
         },
         {
-            "title": "Generate a SQL Tuning Advisor Report",
-            "description": "Create a test workload, generate a SQL Tuning Advisor report, and prepare it for Oracle Support",
-            "type": "freetier",
-            "filename": "../../generate-sql-tuning-advisor-report/generate-sql-tuning-advisor-report.md"
-        },
-        {
-            "title": "Generate a SQL Test Case for Oracle Support",
-            "description": "Export a compressed SQL test case and prepare it for Oracle Support",
-            "type": "freetier",
-            "filename": "../../sql-test-case-builder/sql-test-case-builder.md"
-        },
-        {
             "title": "Monitor OCI Compute Instance Performance",
             "description": "Review OCI compute metrics and collect evidence for a performance investigation",
             "type": "freetier",
             "filename": "../../compute-monitoring/compute-monitoring.md"
+        },
+        {
+            "title": "Generate a SQL Tuning Advisor Report",
+            "description": "Create a test workload, generate a SQL Tuning Advisor report, and prepare it for Oracle Support",
+            "type": "freetier",
+            "filename": "../../generate-sql-tuning-advisor-report/generate-sql-tuning-advisor-report.md"
         },
         {
             "title": "OCIPing Utility Overview",

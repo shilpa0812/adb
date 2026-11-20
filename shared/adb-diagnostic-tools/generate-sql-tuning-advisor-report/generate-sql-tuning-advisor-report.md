@@ -30,6 +30,10 @@ In this lab, you will:
 
     > **Note:** Run this script only in your lab schema. Any existing table named `LL_STA_ORDERS` in that schema is dropped.
 
+    Confirm that the Script Output reports that `LL_STA_ORDERS` was created and the PL/SQL blocks completed successfully.
+
+    ![Create the SQL Tuning Advisor test workload](images/create-sql-tuning-workload.png " ")
+
 3. Run the following target query. This is the statement SQL Tuning Advisor will analyze.
 
     ```sql
@@ -46,6 +50,10 @@ In this lab, you will:
     </copy>
     ```
 
+    Confirm that the query returns the grouped order data.
+
+    ![Run the target SQL statement for SQL Tuning Advisor](images/run-sql-tuning-target.png " ")
+
 ## Task 2: Generate the SQL Tuning Advisor Report
 
 1. Download [Generate the SQL Tuning Advisor report](files/generate-sql-tuning-advisor-report.sql) and open it in a SQL Worksheet using the same database connection.
@@ -61,6 +69,10 @@ In this lab, you will:
 3. Run the downloaded script using **Run Script** or **F5**. Do not use **Run Statement**, because the script uses `VAR`, `SET`, and `SPOOL` commands.
 
 4. The script creates a tuning task for the target query, executes the task with a time limit of 120 seconds, and writes the text report to the spool file.
+
+    Confirm that the report displays a **GENERAL INFORMATION SECTION** and that **Completion Status** is `COMPLETED`.
+
+    ![Generate and review the SQL Tuning Advisor report](images/generate-sql-tuning-report.png " ")
 
 5. Open `SQL_Tuning_Advisor_Report.txt` in a text editor and confirm that it contains the report for the `LL_STA_TARGET` statement. Keep the report for the next task.
 
