@@ -91,6 +91,18 @@
             "filename": "../../generate-sql-tuning-advisor-report/generate-sql-tuning-advisor-report.md"
         },
         {
+            "title": "Generate a SQL Test Case for Oracle Support",
+            "description": "Export a compressed SQL test case and prepare it for Oracle Support",
+            "type": "tenancy",
+            "filename": "../../sql-test-case-builder/sql-test-case-builder.md"
+        },
+        {
+            "title": "Monitor OCI Compute Instance Performance",
+            "description": "Review OCI compute metrics and collect evidence for a performance investigation",
+            "type": "tenancy",
+            "filename": "../../compute-monitoring/compute-monitoring.md"
+        },
+        {
             "title": "OCIPing Utility Overview",
             "description": "Understand OCIPing network latency diagnostics and supporting resources",
             "type": "tenancy",
