@@ -10,7 +10,7 @@ BEGIN
   FOR rec IN (
     SELECT object_name
     FROM   DBMS_CLOUD.LIST_FILES(directory_name => 'SQL_TCB_DIR')
-    WHERE  object_name LIKE 'mytestcase%'
+    WHERE  object_name LIKE 'LL_TCB_CASE%'
   ) LOOP
     DBMS_CLOUD.DELETE_FILE(
       directory_name => 'SQL_TCB_DIR',

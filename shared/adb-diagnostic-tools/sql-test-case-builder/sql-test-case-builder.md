@@ -2,9 +2,9 @@
 
 ## Introduction
 
-SQL Test Case Builder packages a SQL statement and the metadata needed to reproduce its execution plan on another database. This information can help Oracle Support investigate a SQL performance problem without requiring access to the source database.
+SQL Test Case Builder uses `DBMS_SQLDIAG` to package a SQL statement and the related environment details that Oracle Support can use to investigate a SQL performance problem. In this lab, you create a small workload, identify its SQL ID and plan hash value, export a compressed test case, and prepare the ZIP file for a Service Request.
 
-In this lab, you create a small workload, identify its SQL ID, export a compressed SQL test case, and copy the generated files to Object Storage for download. The export does not include table data.
+The export in this lab excludes table rows.
 
 Estimated Time: 15 minutes
 
@@ -13,24 +13,58 @@ Estimated Time: 15 minutes
 In this lab, you will:
 
 - Create and run a tagged SQL workload.
-- Identify the SQL ID for the workload statement.
+- Record the SQL ID and plan hash value.
 - Export and verify a compressed SQL test case.
-- Copy the generated files to Object Storage for download.
+- Transfer the ZIP file and prepare it for an Oracle Support Service Request.
 
 ### Prerequisites
 
 - An available Oracle Autonomous AI Database instance.
-- Access to SQL Developer or Database Actions SQL Worksheet.
-- Access to the `ADMIN` user or another account authorized to run `DBMS_SQLDIAG.EXPORT_SQL_TESTCASE` and read `SQL_TCB_DIR`.
-- An Object Storage bucket and a pre-authenticated request for the target folder, or another transfer method approved by your administrator.
+- A SQL Developer Desktop connection to a non-production schema.
+- Your database account has the `ADVISOR` role, access to `V$SQL` and `V$SQL_TESTCASES`, and read/write access to `SQL_TCB_DIR`.
+- For the transfer step, an existing `DBMS_CLOUD` credential and an Object Storage bucket that you can write to.
 
-> **Note:** SQL Test Case Builder is an advanced diagnostic tool. Use it for a SQL statement identified during an AWR, ASH, SQL Monitor, Performance Hub, or Oracle Support investigation.
+> **Caution:** The workload script recreates `LL_TCB_ORDERS`. Run it only in your lab schema.
 
 ## Task 1: Create a Test Workload
 
-1. Download [Create the SQL Test Case Builder workload](files/create-sql-test-case-workload.sql), and then open it in a SQL worksheet connected to a non-production schema.
+Create a small orders table, gather optimizer statistics, and run the tagged query that you will export.
 
-2. Click **Run Script** or press **F5**. The script recreates `LL_TCB_ORDERS`, gathers optimizer statistics, and runs a query tagged with `LL_TCB_TARGET`.
+1. Download [Create the SQL Test Case Builder workload](files/create-sql-test-case-workload.sql), and then open the script in a SQL Developer worksheet connected to your lab schema.
+
+2. Select the statements that recreate `LL_TCB_ORDERS` and gather optimizer statistics. Click **Run Script** or press **F5**.
+
+    ```sql
+    <copy>
+    BEGIN
+      EXECUTE IMMEDIATE 'DROP TABLE ll_tcb_orders PURGE';
+    EXCEPTION
+      WHEN OTHERS THEN
+        IF SQLCODE != -942 THEN RAISE; END IF;
+    END;
+    /
+
+    CREATE TABLE ll_tcb_orders NOLOGGING AS
+    SELECT LEVEL AS order_id,
+           MOD(LEVEL, 10) AS region_id,
+           TRUNC(SYSDATE) - MOD(LEVEL, 730) AS order_date,
+           CASE WHEN MOD(LEVEL, 5) = 0 THEN 'OPEN' ELSE 'CLOSED' END AS order_status,
+           ROUND(25 + MOD(LEVEL, 10000) / 10, 2) AS order_total
+    FROM   dual
+    CONNECT BY LEVEL <= 20000;
+
+    BEGIN
+      DBMS_STATS.GATHER_TABLE_STATS(USER, 'LL_TCB_ORDERS');
+    END;
+    /
+    </copy>
+    ```
+
+    Confirm that the Script Output reports that `LL_TCB_ORDERS` was created and the PL/SQL blocks completed successfully.
+
+    ![Create the SQL Test Case Builder workload](images/create-test-workload.png " ")
+
+3. In the same SQL Developer connection, select and run the tagged query.
 
     ```sql
     <copy>
@@ -46,7 +80,9 @@ In this lab, you will:
     </copy>
     ```
 
-3. Run the following query immediately after the workload. Record the SQL ID returned for the tagged statement.
+    ![Run the tagged SQL statement](images/run-tagged-query.png " ")
+
+4. Immediately run the following query. Record the returned **SQL ID** and **plan hash value**; you will use both values in Task 2.
 
     ```sql
     <copy>
@@ -61,22 +97,17 @@ In this lab, you will:
     </copy>
     ```
 
-The SQL statement must remain in the cursor cache when you export the test case. If the export cannot find it, rerun the workload query and repeat the SQL ID lookup.
+    ![Record the SQL ID and plan hash value](images/record-sql-id.png " ")
 
-## Task 2: Export the SQL Test Case
+> **Note:** The tagged SQL statement must remain in the cursor cache when you export the test case. If the export cannot find it, rerun the tagged query and repeat the SQL ID lookup.
 
-`SQL_TCB_DIR` is created automatically in Autonomous AI Database. The export writes the test case files to this directory.
+## Task 2: Generate and Verify the Test Case
 
-1. Download [Export the SQL test case](files/export-sql-test-case.sql), and then open it in a SQL worksheet connected as `ADMIN` or another authorized user.
+1. Download [Export the SQL test case](files/export-sql-test-case.sql), and then open it in SQL Developer.
 
-2. Replace `REPLACE_WITH_SQL_ID` with the SQL ID recorded in Task 1.
+2. Replace `REPLACE_WITH_SQL_ID` and `REPLACE_WITH_PLAN_HASH_VALUE` with the values recorded in Task 1.
 
-3. Review the `preserveSchemaMapping` setting:
-
-    - `TRUE` preserves the source schema mapping. The corresponding schema users must exist on the target database.
-    - `FALSE` allows the test case to be imported into a single target user.
-
-4. Click **Run Script** or press **F5**.
+3. Click **Run Script** or press **F5**.
 
     ```sql
     <copy>
@@ -84,52 +115,72 @@ The SQL statement must remain in the cursor cache when you export the test case.
       l_testcase CLOB;
     BEGIN
       DBMS_SQLDIAG.EXPORT_SQL_TESTCASE(
-        directory             => 'SQL_TCB_DIR',
-        sql_id                => 'REPLACE_WITH_SQL_ID',
-        exportData            => FALSE,
-        preserveSchemaMapping => TRUE,
-        testcase_name         => 'mytestcase',
-        ctrlOptions           => '<parameter name="compress">yes</parameter>',
-        testcase              => l_testcase);
+        directory        => 'SQL_TCB_DIR',
+        sql_id           => 'REPLACE_WITH_SQL_ID',
+        plan_hash_value  => REPLACE_WITH_PLAN_HASH_VALUE,
+        exportData       => FALSE,
+        testcase_name    => 'LL_TCB_CASE',
+        ctrlOptions      => '<parameter name="compress">yes</parameter>',
+        testcase         => l_testcase);
     END;
     /
     </copy>
     ```
 
-`exportData => FALSE` is the default behavior and prevents table rows from being included. The package contains SQL, object definitions, optimizer statistics, and other environment metadata needed to reproduce the SQL execution plan.
+    Confirm that the Script Output reports **PL/SQL procedure successfully completed**.
 
-## Task 3: Verify and Download the Test Case
+    ![Export the compressed SQL test case](images/export-sql-test-case.png " ")
+
+4. Download and run [Verify the SQL test case export](files/verify-sql-test-case.sql). Replace `REPLACE_WITH_SQL_ID` with the SQL ID recorded in Task 1.
+
+    ```sql
+    <copy>
+    SELECT testcase_name,
+           sql_id,
+           status,
+           creation_date
+    FROM   v$sql_testcases
+    WHERE  sql_id = 'REPLACE_WITH_SQL_ID'
+    ORDER  BY creation_date DESC
+    FETCH FIRST 1 ROW ONLY;
+    </copy>
+    ```
+
+5. Confirm that `STATUS` is `COMPLETE`. The compressed test case is written to `SQL_TCB_DIR`.
+
+    `exportData => FALSE` prevents table rows from being included. The package contains SQL and environment metadata. Review the package for sensitive identifiers before sharing it.
+
+## Task 3: Transfer the ZIP File and Prepare It for Support
 
 1. Download and run [List the SQL test case files](files/list-sql-test-case-files.sql).
 
     ```sql
     <copy>
     SELECT object_name,
-           bytes,
-           created
-    FROM   DBMS_CLOUD.LIST_FILES(directory_name => 'SQL_TCB_DIR')
-    WHERE  object_name LIKE 'mytestcase%'
-    ORDER  BY created;
+           bytes
+    FROM   DBMS_CLOUD.LIST_FILES('SQL_TCB_DIR:LL_TCB_CASE*');
     </copy>
     ```
 
-The output normally includes `mytestcase.zip`, `mytestcasesql.xml`, and `mytestcasemain.xml`. Retain all files created for the test case.
+2. Locate the `.zip` entry in the results. Record its exact `OBJECT_NAME` and confirm that its size in `BYTES` is greater than zero.
 
-2. Download [Copy the SQL test case to Object Storage](files/copy-sql-test-case-to-object-storage.sql).
+    ![Locate the compressed SQL test case file](images/list-test-case-files.png " ")
 
-3. Replace `REPLACE_WITH_FOLDER_PAR_URL` with the pre-authenticated request URL for the target Object Storage folder. Keep the trailing slash in the URL.
+3. Download [Copy the SQL test case to Object Storage](files/copy-sql-test-case-to-object-storage.sql).
 
-4. Click **Run Script** or press **F5**. The script copies every file beginning with `mytestcase` from `SQL_TCB_DIR` to Object Storage.
+4. Replace the credential name, Object Storage URI, and ZIP filename with values for your environment. Do not include database credentials in the script.
 
-5. Download the files from Object Storage. If Oracle Support requested the test case, attach the files to the applicable Service Request and include the SQL ID and a brief description of the issue.
+5. Click **Run Script** or press **F5** to copy the ZIP file to Object Storage.
 
-> **Caution:** Treat a pre-authenticated request URL as sensitive. Do not include it in the test case package or share it in the Service Request.
+6. Download the ZIP file from Object Storage to your computer. If Oracle Support requested the test case, attach the ZIP file to the applicable Service Request and include the SQL ID and a short description of the problem.
+
+    For practice only, keep the ZIP file locally; you do not need to create a Service Request.
 
 ## Task 4: Clean Up
 
-1. Download and run [Clean up the SQL Test Case Builder lab](files/cleanup-sql-test-case-builder.sql). The script removes the lab table and the generated `mytestcase` files from `SQL_TCB_DIR`.
+1. Download and run [Clean up the SQL Test Case Builder lab](files/cleanup-sql-test-case-builder.sql). The script removes `LL_TCB_ORDERS` and the generated `LL_TCB_CASE` files from `SQL_TCB_DIR`.
 
-2. Remove the copied files from Object Storage when they are no longer needed and your retention policy allows it.
+2. Remove the copied ZIP file from Object Storage when it is no longer needed and your retention policy allows it.
 
 You may now **proceed to the next lab**.
 
